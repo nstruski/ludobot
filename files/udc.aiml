@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    
+  <!-- Réponse pour "BONJOUR", "Bonjour", et "bonjour" -->
+  <category>
+      <pattern>BONJOUR</pattern>
+      <template>
+          Bonjour. Je suis le concierge du centre de formation.
+          Vous souhaitez voir la directrice (tapez 1), 
+          aller dans une salle de cours (tapez 2)
+          ou allez à la cafétéria (tapez 3) ?
+      </template>
+  </category>
+
+   <category>
+      <pattern>LET DISCUSS MOVIES</pattern>
+      <template>Yes <set name = "topic">movies</set></template>  
+   </category>
+   
+   <topic name = "movies">
+      <category>
+         <pattern> NN </pattern>
+         <template>Watching good movie refreshes our minds.</template>
+      </category>
+      
+      <category>
+         <pattern> I LIKE WATCHING COMEDY! </pattern>
+         <template>I like comedy movies too.</template>
+      </category>
+   </topic>
+
+  <!-- Prénom de la personne -->
+<category>
+  <pattern>HO</pattern>
+  <template>
+    Hi there! What's your first name?
+  </template>
+</category>
+
+<category>
+  <pattern>*</pattern>
+  <template>
+    <think><set name="username"><star/></set></think>
+    Nice to meet you, <get name="username"/>! How can I assist you today?
+  </template>
+</category>
+
+  <!-- Création de boutons pour des choix -->
+<category>
+  <pattern>SANTA</pattern> 
+  <template>
+    Ho ho ho ! What list do you thinkyou are on ?
+    <button>
+        <text>Nice!</text>
+        <postback>nicelist</postback>
+    </button>
+    <button>
+        <text>Naughty!</text>
+        <postback>naughtylist</postback>
+    </button>
+    </template> 
+</category>
+<category><pattern>NICELIST</pattern><template>Yay ! List cool</template></category>
+<category><pattern>NAUGHTYLIST</pattern><template>Oh dear ! List cool</template></category>
+
+
+
+
+  <category>
+      <pattern>HELLO</pattern>
+      <template>
+          Bonjour. Je suis le concierge du centre de formation.
+          Vous souhaitez voir la directrice (tapez 1), 
+          aller dans une salle de cours (tapez 2)
+          ou allez à la cafétéria (tapez 3) ?
+      </template>
+  </category>
+
+  <category>
+      <pattern>HI</pattern>
+      <template>
+          Bonjour. Je suis le concierge du centre de formation.
+          Vous souhaitez voir la directrice (tapez 1), 
+          aller dans une salle de cours (tapez 2)
+          ou allez à la cafétéria (tapez 3) ?
+      </template>
+  </category>
+
+  <category>
+      <pattern>HEY</pattern>
+      <template>
+          Bonjour. Je suis le concierge du centre de formation.
+          Vous souhaitez voir la directrice (tapez 1), 
+          aller dans une salle de cours (tapez 2)
+          ou allez à la cafétéria (tapez 3) ?
+      </template>
+  </category>
+
+  <category>
+      <pattern>SALUT</pattern>
+      <template>
+          Bonjour. Je suis le concierge du centre de formation.
+          Vous souhaitez voir la directrice (tapez 1), 
+          aller dans une salle de cours (tapez 2)
+          ou allez à la cafétéria (tapez 3) ?
+      </template>
+  </category>
+
+  <!-- Réponse pour toutes les questions contenant "COMMENT" -->
+  <category>
+      <pattern>COMMENT *</pattern>
+      <template>Très bien, merci !</template>
+  </category>
+
+  <!-- Réponse pour accéder au bureau de la Directrice -->
+  <category>
+      <pattern>1</pattern>
+      <template>
+          Malheureusement la Directrice est absente mais vous avez de la chance car j'ai quelques notions.
+          Vous souhaitez des informations sur la pédagogie (Tapez PEDAGOGIE)
+          ou sur les pédagogues (Tapez PEDAGOGUES) ?
+      </template>
+  </category>
+
+  <category>
+      <pattern>PEDAGOGIE</pattern>
+      <template>
+          Dans ce centre de formation pour adultes, nous utilisons la ludopédagogie.
+          Explications ...
+          D'ailleurs si vous voulez avoir des infos sur les cours alors ...
+      </template>
+  </category>
+
+  <category>
+      <pattern>PEDAGOGUES</pattern>
+      <template>
+          Je lis beaucoup et mes pédagogues préférés sont X, Y et Z.
+      </template>
+  </category>
+
+  <!-- Réponse pour accéder aux salles de cours -->
+  <category>
+      <pattern>2</pattern>
+      <template>
+          Vous avez de la chance car aujourd'hui nous avons trois cours dans notre centre formation. 
+      </template>
+  </category>
+
+  <!-- Réponse pour accéder à la cafétéria -->
+  <category>
+      <pattern>3</pattern>
+      <template>
+          Si vous y allez, je veux bien un café au lait.
+      </template>
+  </category>
+
+  <!-- Réponse pour une question contenant "auteur" et "constructivisme" -->
+  <category>
+      <pattern>* AUTEUR * CONSTRUCTIVISME</pattern>
+      <template>
+          Le constructivisme est associé à plusieurs auteurs tels que Piaget et Vygotsky. 
+          En matière de constructivisme, des auteurs comme Jean Piaget ont beaucoup contribué à la théorie. 
+          Il y a plusieurs auteurs qui ont traité du constructivisme, notamment Vygotsky et Bruner.
+      </template>
+  </category>
+
+  <!-- Réponse par défaut pour toute autre entrée -->
+
+
+  <category>
+      <pattern>6</pattern>
+      <template>Combien de salles de cours dans l'école ?
+<ul>
+    <li>10</li>
+    <li>11</li>
+    <li>12</li>
+</ul>
+<delay>5</delay>
+      </template>
+  </category>
+
+<category>
+  <pattern>WHAT CAN YOU DO</pattern>
+  <template>
+    I can help you with many things. Here are some of the options:
+    <ul>
+      <li>Answer general questions</li>
+      <li>Provide educational resources</li>
+      <li>Assist with technical issues</li>
+    </ul>
+    Is there anything you'd like help with?
+  </template>
+</category>
+
+<category>
+  <pattern>TEST RANDOM</pattern>
+  <template>
+    <random>
+      <li>First random reply</li>
+      <li>Second random reply</li>
+      <li>Third random reply</li>
+    </random>
+  </template>
+</category>
+
+</aiml>

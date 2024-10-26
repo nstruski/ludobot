@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+
+<aiml version="2.0"> 
+
+    <category> 
+
+        <pattern>HELLO HI GOOD MORNING</pattern> 
+
+        <template> 
+
+            <srai>BONJOUR</srai> 
+
+        </template> 
+
+    </category> 
+
+ 
+
+    <category> 
+
+        <pattern>BONJOUR</pattern> 
+
+        <template> 
+
+            Bonjour, je vais te guider dans cette salle. Veux-tu : 
+
+            <ul> 
+
+                <li>la définition d’un escape game pédagogique : tapez 1</li> 
+
+                <li>connaître les éléments essentiels pour sa conception : tapez 2</li> 
+
+                <li>résoudre l’énigme pour sortir de cette salle : tapez 3</li> 
+
+            </ul> 
+
+        </template> 
+
+    </category> 
+
+ 
+
+    <category> 
+
+        <pattern>1</pattern> 
+
+        <template> 
+
+            L'escape pédagogique est une méthode d'apprentissage inspirée des jeux d'évasion (escape games). Elle combine des éléments de jeu avec des objectifs éducatifs, où les participants doivent résoudre des énigmes, relever des défis et collaborer pour progresser dans un scénario donné. 
+
+            Veux-tu connaître les éléments essentiels pour sa conception ? (tapez 2) ou résoudre l'énigme (tapez 3) ? 
+
+        </template> 
+
+    </category> 
+
+ 
+
+    <category> 
+
+        <pattern>2</pattern> 
+
+        <template> 
+
+            Les éléments essentiels à prendre en compte lors de la conception sont : 
+
+            <ul> 
+
+                <li>l'élaboration d'un scénario captivant</li> 
+
+                <li>la création d'énigmes pertinentes liées au contenu éducatif</li> 
+
+                <li>la promotion de la collaboration entre participants</li> 
+
+            </ul> 
+
+            Veux-tu résoudre l'énigme ? (tapez 3) 
+
+        </template> 
+
+    </category> 
+
+ 
+
+    <category> 
+
+        <pattern>3</pattern> 
+
+        <template> 
+
+            Combien y a-t-il de salles de cours dans cette école ? Attention, tu as 5 secondes pour répondre : 
+
+            <ul> 
+
+                <li>4</li> 
+
+                <li>5</li> 
+
+                <li>6</li> 
+
+            </ul> 
+
+            <delay>5</delay> 
+
+        </template> 
+
+    </category> 
+
+ 
+
+    <category> 
+
+        <pattern>4</pattern> 
+
+        <template> 
+
+            😉 Faux, tu vas devoir retenter... 
+
+        </template> 
+
+    </category> 
+
+ 
+
+    <category> 
+
+        <pattern>5</pattern> 
+
+        <template> 
+
+            👏 Bravo ! Tu vas pouvoir continuer ton chemin. 
+
+            À bientôt ! 
+
+            <reply> 
+
+                <text>retour à l'accueil</text> 
+
+                <postback>Insert Postback</postback> 
+
+            </reply> 
+
+        </template> 
+
+    </category> 
+
+ 
+
+    <category> 
+
+        <pattern>6</pattern> 
+
+        <template> 
+
+            Faux, essaie encore ! 
+
+        </template> 
+
+    </category> 
+
+</aiml> 
