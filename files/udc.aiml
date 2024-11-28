@@ -1,150 +1,302 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-    
+
+
   <!-- Réponse pour "BONJOUR", "Bonjour", et "bonjour" -->
   <category>
-      <pattern>BONJOUR</pattern>
-      <template>
-          Bonjour. Je suis le concierge du centre de formation.
-          Vous souhaitez voir la directrice (tapez 1), 
-          aller dans une salle de cours (tapez 2)
-          ou allez à la cafétéria (tapez 3) ?
-      </template>
-  </category>
-
-   <category>
-      <pattern>LET DISCUSS MOVIES</pattern>
-      <template>Yes <set name = "topic">movies</set></template>  
-   </category>
-   
-   <topic name = "movies">
-      <category>
-         <pattern> NN </pattern>
-         <template>Watching good movie refreshes our minds.</template>
-      </category>
-      
-      <category>
-         <pattern> I LIKE WATCHING COMEDY! </pattern>
-         <template>I like comedy movies too.</template>
-      </category>
-   </topic>
-
-  <!-- Prénom de la personne -->
-<category>
-  <pattern>HO</pattern>
+      <pattern>HELLO</pattern>
   <template>
-    Hi there! What's your first name?
-  </template>
-</category>
-
-<category>
-  <pattern>*</pattern>
-  <template>
-    <think><set name="username"><star/></set></think>
-    Nice to meet you, <get name="username"/>! How can I assist you today?
-  </template>
-</category>
-
-  <!-- Création de boutons pour des choix -->
-<category>
-  <pattern>SANTA</pattern> 
-  <template>
-    Ho ho ho ! What list do you thinkyou are on ?
+          Hello and welcome ! My name is LoduBOT, and I'll be your guide today. How can I help you?
     <button>
-        <text>Nice!</text>
-        <postback>nicelist</postback>
-    </button>
+        <text>Get information about the training center</text>
+        <postback>information</postback>
+    </button>        
     <button>
-        <text>Naughty!</text>
-        <postback>naughtylist</postback>
+        <text>Explore the training center</text>
+        <postback>visit</postback>
     </button>
     </template> 
 </category>
-<category><pattern>NICELIST</pattern><template>Yay ! List cool</template></category>
-<category><pattern>NAUGHTYLIST</pattern><template>Oh dear ! List cool</template></category>
-
-
-
 
   <category>
-      <pattern>HELLO</pattern>
+      <pattern>BONJOUR</pattern>
       <template>
-          Bonjour. Je suis le concierge du centre de formation.
-          Vous souhaitez voir la directrice (tapez 1), 
-          aller dans une salle de cours (tapez 2)
-          ou allez à la cafétéria (tapez 3) ?
-      </template>
-  </category>
-
-  <category>
-      <pattern>HI</pattern>
-      <template>
-          Bonjour. Je suis le concierge du centre de formation.
-          Vous souhaitez voir la directrice (tapez 1), 
-          aller dans une salle de cours (tapez 2)
-          ou allez à la cafétéria (tapez 3) ?
-      </template>
-  </category>
-
-  <category>
-      <pattern>HEY</pattern>
-      <template>
-          Bonjour. Je suis le concierge du centre de formation.
-          Vous souhaitez voir la directrice (tapez 1), 
-          aller dans une salle de cours (tapez 2)
-          ou allez à la cafétéria (tapez 3) ?
+          <srai>HELLO</srai>
       </template>
   </category>
 
   <category>
       <pattern>SALUT</pattern>
       <template>
-          Bonjour. Je suis le concierge du centre de formation.
-          Vous souhaitez voir la directrice (tapez 1), 
-          aller dans une salle de cours (tapez 2)
-          ou allez à la cafétéria (tapez 3) ?
+          <srai>HELLO</srai>
       </template>
   </category>
 
-  <!-- Réponse pour toutes les questions contenant "COMMENT" -->
   <category>
-      <pattern>COMMENT *</pattern>
-      <template>Très bien, merci !</template>
+      <pattern>HI</pattern>
+      <template>
+          <srai>HELLO</srai>
+      </template>
   </category>
 
-  <!-- Réponse pour accéder au bureau de la Directrice -->
   <category>
-      <pattern>1</pattern>
+      <pattern>HY</pattern>
       <template>
-          Malheureusement la Directrice est absente mais vous avez de la chance car j'ai quelques notions.
-          Vous souhaitez des informations sur la pédagogie (Tapez PEDAGOGIE)
-          ou sur les pédagogues (Tapez PEDAGOGUES) ?
+          <srai>HELLO</srai>
+      </template>
+  </category>
+
+  <category>
+      <pattern>HEY</pattern>
+      <template>
+          <srai>HELLO</srai>
+      </template>
+  </category>
+
+  <category>
+      <pattern>GOOD MORNING</pattern>
+      <template>
+          <srai>HELLO</srai>
+      </template>
+  </category>
+
+  <category>
+      <pattern>GOOD AFTERNOON</pattern>
+      <template>
+          <srai>HELLO</srai>
+      </template>
+  </category>
+
+
+  <!-- Réponse pour le choix visiter ou les salles -->
+<category>
+    <pattern>VISIT</pattern>
+    <template>Follow me !
+                <delay>1</delay> 
+        <srai>plan</srai>
+    </template>
+</category>
+
+  <category>
+      <pattern>plan</pattern>
+      <template>
+          The training center has several rooms, including :
+        <button>
+            <text>Escape Game</text>
+            <postback>celine</postback>
+        </button>
+        <button>
+            <text>Fab Lab</text>
+            <postback>audrey</postback>
+        </button>      
+        <button>
+            <text>Skills</text>
+            <postback>claire</postback>
+        </button>      
+        <button>
+            <text>Gamification</text>
+            <postback>arthur</postback>
+        </button>      
+        <button>
+            <text>Director's office</text>
+            <postback>nico</postback>
+        </button>      
+      </template>
+  </category>        
+
+
+  <!-- Informations sur le centre -->
+<category>
+    <pattern>INFORMATION</pattern>
+    <template>
+        This center is dedicated to adult training.
+        <delay>2</delay> 
+<ul>
+    <li>For those undergoing a career change.</li>
+    <li>For those who want to learn a new profession</li>
+</ul>
+        <delay>5</delay> 
+        In this center, we use ludopedagogy.
+        <button>
+            <text>About Ludopedagogy</text>
+            <postback>ludo</postback>
+        </button>
+        <button>
+        <text>Explore the training center</text>
+        <postback>visit</postback>
+        </button>
+    </template>
+</category>  
+
+
+  <!-- Gestion de l'erreur -->
+<category>
+      <pattern>*</pattern>
+      <template>
+          I apologize, but I did not understand. Shall we return to the main menu ?
+        <button>
+            <text>MENU</text>
+            <postback>HELLO</postback>
+        </button>
+      </template>
+</category>     
+
+
+  <!-- Retour au départ -->
+    <category> 
+        <pattern>EXIT</pattern> 
+      <template>
+          <srai>HELLO</srai>
+      </template>
+    </category> 
+
+
+  <!-- Intro : ludopédagogie -->
+    <category> 
+        <pattern>ludo</pattern> 
+      <template>
+          <b>LUDO PEDAGOGY</b>
+            <delay>1</delay>
+          Ludo-pedagogy is an educational approach that uses games and play to teach.
+          It's like turning learning into a game, making it more enjoyable and memorable.
+          By incorporating game mechanics, challenges, and rewards, educators can motivate learners and help them grasp complex concepts more easily.
+            <delay>6</delay>
+        And now ?
+        <button>
+        <text>Explore the training center</text>
+        <postback>visit</postback>
+        </button>
+      </template>
+    </category> 
+
+
+  <!-- Salle ESCAPE GAME par Celine -->
+
+    <category> 
+        <pattern>celine</pattern> 
+        <template> 
+            <b>ESCAPE GAME</b>
+            <delay>2</delay>
+            Hello, I will guide you to this room. Do you want :
+    <ul>
+        <li>The definition of an educational escape game ?</li>
+        <li>Know what we are doing in this room ?</li>
+    </ul>
+        <button>
+            <text>Definition</text>
+            <postback>definition</postback>
+        </button>
+        <button>
+            <text>Room</text>
+            <postback>room</postback>
+        </button>
+        <button>
+            <text>Return to the entrance hall</text>
+            <postback>HELLO</postback>
+        </button>
+        </template> 
+    </category> 
+
+    <category> 
+        <pattern>definition</pattern> 
+        <template> 
+            Educational escape is a learning method inspired by escape games. It combines gaming elements with educational objectives, where participants must solve puzzles and collaborate to progress in a given scenario. 
+            Do you want to know what we're doing in this room ? 
+        <delay>6</delay>
+        <button>
+            <text>Yes !</text>
+            <postback>room</postback>
+        </button>
+        <button>
+            <text>No ...</text>
+            <postback>plan</postback>
+        </button>
+        </template> 
+    </category> 
+
+ 
+    <category> 
+        <pattern>room</pattern> 
+        <template> 
+            You will learn how to design escape games by developing a captivating scenario and using relevant puzzles linked to educational content. 
+        <delay>4</delay>
+        <button>
+            <text>Definition of escape game</text>
+            <postback>definition</postback>
+        </button>
+        <button>
+            <text>Back</text>
+            <postback>plan</postback>
+        </button>
+        </template> 
+    </category> 
+  
+
+  <!-- DIRECTEUR par Nicolas -->
+  <category>
+      <pattern>nico</pattern>
+      <template>
+          Unfortunately, the Director is absent, but you're in luck because I have some knowledge.
+                  <delay>4</delay> 
+          Would you like information on pedagogy or pedagogues ?
+        <button>
+            <text>PEDAGOGY</text>
+            <postback>PEDAGOGIE</postback>
+        </button>
+        <button>
+            <text>PEDAGOGUES</text>
+            <postback>PEDAGOGUES</postback>
+        </button>
+        <button>
+            <text>Return to the entrance hall</text>
+            <postback>HELLO</postback>
+        </button>
       </template>
   </category>
 
   <category>
       <pattern>PEDAGOGIE</pattern>
       <template>
-          Dans ce centre de formation pour adultes, nous utilisons la ludopédagogie.
-          Explications ...
-          D'ailleurs si vous voulez avoir des infos sur les cours alors ...
+          Ludopedagogy is an educational approach that uses games to facilitate learning by making concepts more accessible and engaging.<br/>
+          This pedagogy stimulates motivation and promotes memorization, while allowing adults to acquire practical skills in an interactive and collaborative setting.
+    <delay>8</delay>
+        What would you like to do now?
+        <button>
+            <text>Learn more about pedagogues</text>
+            <postback>PEDAGOGUES</postback>
+        </button>
+        <button>
+            <text>Return to the entrance hall</text>
+            <postback>HELLO</postback>
+        </button>
       </template>
   </category>
 
   <category>
       <pattern>PEDAGOGUES</pattern>
       <template>
-          Je lis beaucoup et mes pédagogues préférés sont X, Y et Z.
+          I read a lot and often discuss with the Director. Together, we talk about several pedagogues whose theories are used in this training center.
+    <delay>5</delay>
+        <b>PEDAGOGUES</b>
+    <ul>
+        <li>Lev Vygotsky</li>
+        <li>Jean Piaget</li>
+        <li>Brian Sutton-Smith</li>
+        <li>Jerome Bruner</li>
+    </ul>
+    <delay>5</delay>
+        What would you like to do now?
+        <button>
+            <text>Learn more about pedagogy</text>
+            <postback>PEDAGOGIE</postback>
+        </button>
+        <button>
+            <text>Return to the entrance hall</text>
+            <postback>HELLO</postback>
+        </button>
       </template>
   </category>
 
-  <!-- Réponse pour accéder aux salles de cours -->
-  <category>
-      <pattern>2</pattern>
-      <template>
-          Vous avez de la chance car aujourd'hui nous avons trois cours dans notre centre formation. 
-      </template>
-  </category>
 
   <!-- Réponse pour accéder à la cafétéria -->
   <category>
@@ -164,43 +316,217 @@
       </template>
   </category>
 
-  <!-- Réponse par défaut pour toute autre entrée -->
 
+  <!-- FAB LAB par Audrey -->
 
   <category>
-      <pattern>6</pattern>
-      <template>Combien de salles de cours dans l'école ?
-<ul>
-    <li>10</li>
-    <li>11</li>
-    <li>12</li>
-</ul>
-<delay>5</delay>
-      </template>
+      <pattern>AUDREY</pattern>
+      <template>
+        Hello everyone. I'm the Fab Lab manager and trainer specializing in icebreakers.
+        <delay>1</delay>
+        . If you'd like to find out more about our icebreakers workshop and try it out for yourself, press ...
+        <button>
+            <text>ICEBREAKERS</text>
+            <postback>icebreakers</postback>
+        </button>
+        <delay>1</delay>
+        . If you'd like to join the Fab Lab and create games, press ...
+        <button>
+            <text>FAB LAB</text>
+            <postback>fablab</postback>
+        </button>
+        <button>
+            <text>Return to the entrance hall</text>
+            <postback>HELLO</postback>
+        </button>
+        </template>
   </category>
 
+<category> 
+      <pattern>icebreakers</pattern> 
+  <template> 
+          Icebreakers in training or the workplace refer to activities or exercises designed to help participants feel more comfortable, break down social barriers and foster a sense of connection between members of a group. These activities are usually used at the start of meetings, training sessions or workshops to encourage interaction, facilitate communication and create a positive, collaborative atmosphere. Would you like to find out more about the workshop? 
+        <button>
+            <text>CONTINUE</text>
+            <postback>continue1</postback>
+        </button>
+      </template>  
+</category> 
+ 
+
+<category> 
+      <pattern>continue1</pattern> 
+        <template> 
+          Here's an example of an icebreaker you can try out in our workshop :  The ball of yarn.    
+This activity uses a ball of wool and is suitable for groups of 8 to 12 people. It can be done quickly at the beginning of a meeting and takes about 5 minutes.   
+The principle is simple: participants stand in a tight circle, then the first person holds the end of the ball and gives it to another member, explaining the connection between them. The ball is then passed around the circle. It is also possible to express a common point with the other participants. It's a fun way to discover affinities between members and to show their connection. 
+        <delay>6</delay> 
+        <button>
+            <text>BACK</text>
+            <postback>audrey</postback>
+        </button>
+      </template>  
+</category> 
+
+
+<category> 
+      <pattern>fablab</pattern> 
+  <template> 
+      Welcome! The Fab Lab is a place of educational innovation, where you can let your creativity run wild as you design and create a game series to match !
+      You'll have access to all the equipment you need, including 3D printers, sewing machines and computers running powerful software.
+      Would you like to discover the fab lab ?
+      <delay>6</delay>
+        <button>
+            <text>Yes !</text>
+            <postback>discover</postback>
+        </button>
+        <button>
+            <text>No ...</text>
+            <postback>audrey</postback>
+        </button>
+      </template>  
+</category> 
+
+
+<category> 
+      <pattern>discover</pattern> 
+  <template> 
+  Click here to visit our training center:   
+<url> https://view.genially.com/67109a927c0dc2c6afd1da84/presentation-genialy-acces-equipe-ludo-school-v1-pptx </url> 
+      </template>  
+</category> 
+
+
+
+<!-- Salle Soft and hard SKILLS par Claire --> 
+
+  <category> 
+      <pattern>claire</pattern> 
+  <template> 
+          Welcome to the soft and hard skills room ! What do you want to learn about? 
+    <button> 
+        <text>Soft skills</text> 
+        <postback>soft</postback> 
+    </button>         
+    <button> 
+        <text>Hard skills</text> 
+        <postback>hard</postback> 
+    </button> 
+    <button> 
+        <text>The courses of this room</text> 
+        <postback>courses</postback> 
+    </button>   
+        <button>
+            <text>Return to the entrance hall</text>
+            <postback>HELLO</postback>
+        </button>
+    </template>  
+</category> 
+
+    <category>  
+        <pattern>soft</pattern>  
+        <template>  
+            Soft skills are behavioural traits, they answer the question “how to be”. For example work ethic or creative thinking  
+        <button>
+            <text>BACK</text>
+            <postback>claire</postback>
+        </button>
+    </template> 
+    </category>  
+ 
+    <category>  
+        <pattern>hard</pattern>  
+        <template>  
+         Hard skills are competencies and abilities that are measurable and specific, they answer the question “how to do it”. For example programming skills or spoken languages.  
+        <button>
+            <text>BACK</text>
+            <postback>claire</postback>
+        </button>
+        </template> 
+    </category>  
+ 
+    <category>  
+        <pattern>courses</pattern>  
+        <template>  
+         In this room there are two particulars games to help you develop your soft and hard skills.
+        <delay>3</delay>
+        <ol>
+            <li>an urban simulation game that teaches resources management, planning or even economic development,</li>
+            <li>and a conflict resolution role-playing game for managerial skills and decision-making.</li>
+        </ol>
+    <button> 
+        <text>Back</text> 
+        <postback>claire</postback> 
+    </button> 
+        </template>  
+    </category>  
+
 <category>
-  <pattern>WHAT CAN YOU DO</pattern>
-  <template>
-    I can help you with many things. Here are some of the options:
-    <ul>
-      <li>Answer general questions</li>
-      <li>Provide educational resources</li>
-      <li>Assist with technical issues</li>
-    </ul>
-    Is there anything you'd like help with?
-  </template>
+    <pattern>INTERACTIONS</pattern>
+    <template>
+        <think><set name="interactionCount"><eval><get name="interactionCount"/> + 1</eval></set></think>
+        Hello! This is our <get name="interactionCount"/> time talking.
+    </template>
 </category>
 
 <category>
-  <pattern>TEST RANDOM</pattern>
-  <template>
-    <random>
-      <li>First random reply</li>
-      <li>Second random reply</li>
-      <li>Third random reply</li>
-    </random>
-  </template>
+    <pattern>HOW MANY TIMES HAVE WE TALKED</pattern>
+    <template>
+        We have talked <get name="interactionCount"/> times.
+    </template>
 </category>
+
+
+<!-- Salle Gamification par Arthur -->
+
+<category>
+    <pattern>arthur</pattern>
+    <template>
+          <b>GAMIFICATION</b>
+            <delay>1</delay>
+        What are you looking for?
+        <button>
+            <text>What is gamification?</text>
+            <postback>AnswerWhat is gamification</postback>
+        </button>
+        <button>
+            <text>Can it be applied to every kinds of learning?</text>
+            <postback>AnswerCan it be applied to every kinds of learning</postback>
+        </button>
+        <button>
+            <text>What are the objectives of this class?</text>
+            <postback>AnswerWhat are the objectives of this class</postback>
+        </button>
+        <button>
+            <text>Go back to the lobby</text>
+            <postback>
+          HELLO
+     </postback>
+        </button>
+    </template>
+</category>
+<category>
+    <pattern>AnswerWhat is gamification</pattern>
+    
+    <template>It is the application of game mechanisms in non‐gaming environments with the aim of enhancing the processes enacted and the experience.  here applying for training resources and education.<link>
+          <text>You can learn more about Gamification here</text>
+          <url>https://link.springer.com/article/10.1186/s41239-017-0042-5</url>
+      </link>
+      <delay>7</delay>
+     <srai>arthur</srai>
+</template>
+</category>
+<category>
+    <pattern>AnswerCan it be applied to every kinds of learning</pattern>
+    <template>In theory yes. But it faces some limits of efficiency for certain kinds of learning. You will learn more thanks to classroom activities.
+     <delay>7</delay>
+     <srai>arthur</srai></template>
+</category>
+<category>
+    <pattern>AnswerWhat are the objectives of this class</pattern>
+    <template>This class is an introduction to the basics of gamification. It teaches how to transform classic learning into serious games. Explains consequences and limits of gamification. <delay>7</delay>
+     <srai>arthur</srai></template>
+</category>
+
 
 </aiml>
